@@ -1,5 +1,10 @@
-﻿namespace Runtime.Quests
+﻿using System;
+using System.Collections.Generic;
+using Runtime.Characters;
+
+namespace Runtime.Quests
 {
+    [Serializable]
     public class Quest
     {
         public int strengthRequirement;
@@ -12,5 +17,7 @@
         public int reward;
         
         public int difficultyRating;
+
+        public List<Adventurer> assignedAdventurers = new List<Adventurer>();
     }
 }
