@@ -1,15 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using Runtime.Characters;
+using Runtime.Quests;
+using UnityEngine;
 
 namespace Data.CharacterData
 {
-    
+    [Serializable]
     [CreateAssetMenu(menuName = "Kwest/ Character")]
     public class PremadeCharacter: ScriptableObject
     {
-        public string characterName;
-        
-        public int characterStr;
-        public int characterInt;
-        public int characterCha;
+        public KwestCharacterInfo characterInfo;
+        public Quest quest;
     }
 }

@@ -10,19 +10,19 @@ namespace Data.DataSaving
     public class SavedGameData
     {
 
-        public List<Adventurer> activeAdventurers = new List<Adventurer>();
-        public List<Adventurer> savedAdventurers = new List<Adventurer>();
-        public List<QuestGiver> savedQuestGivers = new List<QuestGiver>();
-        public List<Quest> activeQuests = new List<Quest>();
-        public List<Quest> inactiveQuests = new List<Quest>();
+        public List<KwestCharacterInfo> activeAdventurers = new List<KwestCharacterInfo>();
+        public List<KwestCharacterInfo> savedAdventurers = new List<KwestCharacterInfo>();
+        public List<KwestCharacterInfo> savedQuestGivers = new List<KwestCharacterInfo>();
+        public List<AssignableQuest> activeQuests = new List<AssignableQuest>();
+        public List<AssignableQuest> inactiveQuests = new List<AssignableQuest>();
         
         public SavedGameData()
         {
-            activeAdventurers = new List<Adventurer>();
-            savedAdventurers = new List<Adventurer>();
-            savedQuestGivers = new List<QuestGiver>();
-            activeQuests = new List<Quest>();
-            inactiveQuests = new List<Quest>();
+            activeAdventurers = new List<KwestCharacterInfo>();
+            savedAdventurers = new List<KwestCharacterInfo>();
+            savedQuestGivers = new List<KwestCharacterInfo>();
+            activeQuests = new List<AssignableQuest>();
+            inactiveQuests = new List<AssignableQuest>();
         }
     }
 }

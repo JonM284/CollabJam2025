@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4e1cd8be104742afc416b735a41025, type: 3}
+  m_Name: QuestGiver
+  m_EditorClassIdentifier: 
+  characterInfo:
+    characterName: Test Quest Giver
+    isQuestGiver: 1
+    isGood: 1
+    personalityTypeGUID: 
+    strModifier: 0
+    intModifier: 0
+    chaModifier: 0
+    characterDialog:
+    - Howdy! Here to give a kwuest.
+    - Our Town has been having too many goblins moving in... Need someone that can
+      get rid of them for us
+    - We can offer 100 G as a reward!
+  quest:
+    strengthRequirement: 1
+    intelligenceRequirement: 0
+    charismaRequirement: 0
+    title: Kill Goblins
+    description: 'The town of Mid has '
+    reward: 100
+    difficultyRating: 0
+    assignedAdventurers: []

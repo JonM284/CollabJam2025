@@ -1,6 +1,6 @@
 ﻿namespace Runtime.Characters
 {
-    public class QuestGiver
+    public class QuestGiver: CharacterBase
     {
         
     }

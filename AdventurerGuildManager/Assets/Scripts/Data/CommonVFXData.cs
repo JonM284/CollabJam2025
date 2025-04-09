@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Data
 {
-    [CreateAssetMenu(menuName = "Dodge-ball/VFX/Common VFX")]
+    [CreateAssetMenu(menuName = "Kwest/VFX/Common VFX")]
     public class CommonVFXData: ScriptableObject
     {
 

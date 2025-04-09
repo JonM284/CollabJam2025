@@ -2,10 +2,8 @@
 {
     public interface ICharacter
     {
-        public string name { get; protected set; }
-
         public void BeginInteraction();
-        public void Deny();
-        public void Accept();
+        public void OnDeny();
+        public void OnAccept();
     }
 }

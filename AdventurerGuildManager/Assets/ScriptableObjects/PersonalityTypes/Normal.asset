@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306099b49dcd49209705c9686d6cb475, type: 3}
+  m_Name: Normal
+  m_EditorClassIdentifier: 
+  possibleDialogs:
+  - Hey
+  - Ummmm
+  - Kwest please
+  - ...
+  GUID: 38393a7f-fa71-4b4c-8a00-c438b34d8dbc

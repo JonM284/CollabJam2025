@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Data
 {
     [Serializable] 
-    [CreateAssetMenu(menuName = "Dodge-ball/UI/Popup Dialog Data")]
+    [CreateAssetMenu(menuName = "Kwest/UI/Popup Dialog Data")]
     public class PopupDialogData : ScriptableObject
     {
         

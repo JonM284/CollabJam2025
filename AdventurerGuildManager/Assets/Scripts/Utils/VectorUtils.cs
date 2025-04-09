@@ -13,6 +13,12 @@ namespace Project.Scripts.Utils
             return _vector;
         }
 
+        public static Vector3 FlattenVector3Z(this Vector3 _vector3)
+        {
+            _vector3.z = 0;
+            return _vector3;
+        }
+
         public static bool IsNan(this Vector3 vector3)
         {
             return float.IsNaN(vector3.x) || float.IsNaN(vector3.y) || float.IsNaN(vector3.z);

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b8f85a08004fbfbda962262302e340, type: 3}
+  m_Name: Day1_Interactions
+  m_EditorClassIdentifier: 
+  isRandomTiming: 0
+  setAmountOfCharactersInDay: 0
+  dailyCharacters:
+  - characterType: 3
+    premadeCharacter: {fileID: 11400000, guid: 48d4c5e6fed6bbd49826feb16d4c2015, type: 2}
+  - characterType: 2
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}
+  - characterType: 0
+    premadeCharacter: {fileID: 0}

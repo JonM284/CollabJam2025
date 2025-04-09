@@ -17,7 +17,5 @@ namespace Runtime.Quests
         public int reward;
         
         public int difficultyRating;
-
-        public List<Adventurer> assignedAdventurers = new List<Adventurer>();
     }
 }

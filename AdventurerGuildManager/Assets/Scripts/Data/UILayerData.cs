@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Data
 {
-    [CreateAssetMenu(menuName = "Dodge-ball/UI/UI Layer")]
+    [CreateAssetMenu(menuName = "Kwest/UI/UI Layer")]
     public class UILayerData: ScriptableObject
     {
         public string guid;
