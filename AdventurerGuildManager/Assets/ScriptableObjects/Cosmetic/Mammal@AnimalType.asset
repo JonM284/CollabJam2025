@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbd57bdee10454788fbb8951a4bd544, type: 3}
+  m_Name: Mammal@AnimalType
+  m_EditorClassIdentifier: 
+  earCosmetic:
+  - {fileID: -1768051165, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: 95457322, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: -1733467821, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: -1278555878, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: 1208502755, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: 1588621571, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: 920548969, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: -1382522642, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: -653402634, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  - {fileID: 1625046414, guid: ef23fa15a4d5b8a458787c1dfc013a1d, type: 3}
+  hairCosmetic:
+  - {fileID: 848063131, guid: fd2ad7cf833432f4092e120274c244ef, type: 3}
+  - {fileID: -198946242, guid: fd2ad7cf833432f4092e120274c244ef, type: 3}
+  mouthCosmetic:
+  - {fileID: -1178608104, guid: 00700d8d434168f47a6d8e8e969c6eac, type: 3}
+  - {fileID: -1048620499, guid: 00700d8d434168f47a6d8e8e969c6eac, type: 3}
+  - {fileID: -364502086, guid: 00700d8d434168f47a6d8e8e969c6eac, type: 3}
+  - {fileID: 92813422, guid: 00700d8d434168f47a6d8e8e969c6eac, type: 3}

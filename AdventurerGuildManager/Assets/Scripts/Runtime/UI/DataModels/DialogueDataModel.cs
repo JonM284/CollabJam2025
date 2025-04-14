@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using NUnit.Framework;
+using Project.Scripts.Utils;
 using Runtime.GameControllers;
 using TMPro;
 using UnityEngine;
@@ -26,6 +28,7 @@ namespace Runtime.UI.DataModels
         [SerializeField] private float m_textSpeed;
 
         private int m_index;
+        private bool m_hasFinishedWriting, m_hasPressedToEnd;
         private List<string> m_currentDialogues = new List<string>();
 
         public void OnEnable()
@@ -42,16 +45,28 @@ namespace Runtime.UI.DataModels
 
         private void DialogueGameControllerOnrequestNewSetOfSentences(List<string> _newSentences)
         {
+            if (_newSentences.IsNull())
+            {
+                CloseDialog();
+                return;
+            }
+            
             m_text.text = string.Empty;
             m_holder.SetActive(true);
             m_currentDialogues.Clear();
-            m_currentDialogues = _newSentences;
+            m_currentDialogues = _newSentences.ToList();
             m_index = 0;
             DrawSentence();
         }
         
         private void DialogueGameControllerOnrequestNewSetOfSentences(string _newSentence)
         {
+            if (string.IsNullOrEmpty(_newSentence))
+            {
+                CloseDialog();
+                return;
+            }
+            
             m_text.text = string.Empty;
             m_holder.SetActive(true);
             m_currentDialogues.Clear();
@@ -62,6 +77,13 @@ namespace Runtime.UI.DataModels
 
         public void MoveNextSentence()
         {
+            if (!m_hasFinishedWriting)
+            {
+                m_hasPressedToEnd = true;
+                return;
+            }
+
+            m_hasPressedToEnd = false;
             m_index++;
             m_text.text = string.Empty;
             
@@ -71,20 +93,40 @@ namespace Runtime.UI.DataModels
             }
             else
             {
-                m_holder.SetActive(false);
-                onDialogueClosed?.Invoke();
+                CloseDialog();
             }
+        }
+
+        private void CloseDialog()
+        {
+            m_holder.SetActive(false);
+            onDialogueClosed?.Invoke();
         }
 
         public async UniTask DrawSentence()
         {
+            if (m_currentDialogues[m_index].IsNull())
+            {
+                onSentenceFinished?.Invoke();
+                return;
+            }
+            
+            m_hasFinishedWriting = false;
+            
             foreach (char _character in m_currentDialogues[m_index].ToCharArray())
             {
+                if (m_hasPressedToEnd)
+                {
+                    break;
+                }
+                
                 onLetterAdded?.Invoke();
                 m_text.text += _character;
                 await UniTask.WaitForSeconds(m_textSpeed);
             }
-            
+
+            m_text.text = m_currentDialogues[m_index];
+            m_hasFinishedWriting = true;
             onSentenceFinished?.Invoke();
         }
 

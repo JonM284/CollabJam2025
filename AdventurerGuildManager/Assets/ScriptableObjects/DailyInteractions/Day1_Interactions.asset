@@ -15,9 +15,9 @@ MonoBehaviour:
   isRandomTiming: 0
   setAmountOfCharactersInDay: 0
   dailyCharacters:
-  - characterType: 3
+  - characterType: 1
     premadeCharacter: {fileID: 11400000, guid: 48d4c5e6fed6bbd49826feb16d4c2015, type: 2}
-  - characterType: 2
+  - characterType: 0
     premadeCharacter: {fileID: 0}
   - characterType: 0
     premadeCharacter: {fileID: 0}

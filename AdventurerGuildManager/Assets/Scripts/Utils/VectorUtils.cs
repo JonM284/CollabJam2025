@@ -13,9 +13,9 @@ namespace Project.Scripts.Utils
             return _vector;
         }
 
-        public static Vector3 FlattenVector3Z(this Vector3 _vector3)
+        public static Vector3 FlattenVector3Z(this Vector3 _vector3, float _newZ = 0)
         {
-            _vector3.z = 0;
+            _vector3.z = _newZ;
             return _vector3;
         }
 

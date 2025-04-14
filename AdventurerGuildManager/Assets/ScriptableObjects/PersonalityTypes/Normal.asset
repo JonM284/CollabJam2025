@@ -17,4 +17,15 @@ MonoBehaviour:
   - Ummmm
   - Kwest please
   - ...
+  possibleAcceptDialogs:
+  - yay
+  - Thank you!
+  - Thanks!
+  - I look forward to seeing this completed!
+  - Thank you 1000 times!
+  possibleDenyDialogs:
+  - Oh... Dang
+  - Oh Ok.....
+  - What a shame
+  - Ooof
   GUID: 38393a7f-fa71-4b4c-8a00-c438b34d8dbc

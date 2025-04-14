@@ -4,8 +4,10 @@ using MoreMountains.Feedbacks;
 using Project.Scripts.Utils;
 using Runtime.Characters;
 using Runtime.GameControllers;
+using Runtime.ScriptedAnimations.Transform;
 using Runtime.UI.DataModels;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Runtime.Gameplay
 {
@@ -20,9 +22,15 @@ namespace Runtime.Gameplay
         
         #region Serialized Fields
 
-        [SerializeField] private MMF_Player m_walkFeedback, m_giveQuestFeedback;
+        [SerializeField] private MMF_Player m_walkFeedback;
+        [SerializeField] private MMF_Player m_giveObjectFeedback;
+        [SerializeField] private TransformAnimation m_walkAnim;
         [SerializeField] private CharacterBase m_character;
 
+        [SerializeField] private DraggableObject m_draggable;
+        
+        [SerializeField] private GameObject m_denyArea;
+        
         #endregion
 
         #region GameControllerBase Inherited Methods
@@ -62,7 +70,16 @@ namespace Runtime.Gameplay
 
         private void DialogueDataModelOnDialogueClosed()
         {
-            m_giveQuestFeedback.PlayFeedbacks();
+            if (m_character.m_isInteracting)
+            {
+                m_giveObjectFeedback.PlayFeedbacks();
+                m_denyArea.SetActive(true);
+            }
+            else
+            {
+                CharacterEndInteraction();
+                m_denyArea.SetActive(false);
+            }
         }
         
         private void InteractionGameManagerOnStartNextInteraction(KwestCharacterInfo _newCharacter)
@@ -79,14 +96,28 @@ namespace Runtime.Gameplay
             m_character.AssignInfo(_newCharacter);
             
             //ToDo: wait for character to be created
+            await m_character.ChangeCosmetics();
             
             //Do walk animation
             m_walkFeedback.PlayFeedbacks();
+            m_walkAnim.Play();
 
-            await UniTask.WaitUntil(() => !m_walkFeedback.IsPlaying);
+            await UniTask.WaitUntil(() => !m_walkAnim.isPlaying);
             
             m_character.BeginInteraction();
         }
+
+        private async UniTask CharacterEndInteraction()
+        {
+            m_walkFeedback.PlayFeedbacks();
+            m_walkAnim.PlayReverse();
+
+            await UniTask.WaitUntil(() => !m_walkAnim.isPlaying);
+            
+            InteractionGameManager.Instance.SetInteractionState(false);
+        }
+        
+        
         
         #endregion
         

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfbd57bdee10454788fbb8951a4bd544, type: 3}
+  m_Name: Bird@AnimalType
+  m_EditorClassIdentifier: 
+  earCosmetic:
+  - {fileID: 0}
+  hairCosmetic:
+  - {fileID: -198946242, guid: fd2ad7cf833432f4092e120274c244ef, type: 3}
+  - {fileID: 1497611195, guid: fd2ad7cf833432f4092e120274c244ef, type: 3}
+  mouthCosmetic:
+  - {fileID: 1001306478, guid: 00700d8d434168f47a6d8e8e969c6eac, type: 3}
+  - {fileID: -2018208701, guid: 00700d8d434168f47a6d8e8e969c6eac, type: 3}
+  - {fileID: 2059434476, guid: 00700d8d434168f47a6d8e8e969c6eac, type: 3}

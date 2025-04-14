@@ -5,5 +5,6 @@
         NONE,
         QUEST_BOARD,
         ADVENTURER_BOOK,
+        RETURN,
     }
 }

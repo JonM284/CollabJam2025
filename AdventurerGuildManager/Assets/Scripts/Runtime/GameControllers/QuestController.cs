@@ -41,6 +41,11 @@ namespace Runtime.GameControllers
 
         public void AddQuestToQuestBoard(Quest _quest)
         {
+            if (_quest.IsNull())
+            {
+                return;
+            }
+            
             m_savedQuests.Add(new AssignableQuest(_quest));
         }
 

@@ -25,27 +25,31 @@ namespace Data.DataSaving
         public SavedGameData Load()
         {
             string fullPath = Path.Combine(dataDirPath, dataFileName);
-
+            Debug.Log(fullPath);
+            
             SavedGameData loadedData = null;
-            if (File.Exists(fullPath))
+            
+            if (!File.Exists(fullPath))
             {
-                try
+                return loadedData;
+            }
+            
+            try
+            {
+                string dataToLoad = "";
+                using (FileStream stream = new FileStream(fullPath, FileMode.Open))
                 {
-                    string dataToLoad = "";
-                    using (FileStream stream = new FileStream(fullPath, FileMode.Open))
+                    using (StreamReader reader = new StreamReader(stream))
                     {
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            dataToLoad = reader.ReadToEnd();
-                        }
+                        dataToLoad = reader.ReadToEnd();
                     }
+                }
 
-                    loadedData = JsonUtility.FromJson<SavedGameData>(dataToLoad);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogError("Error during loading file");
-                }
+                loadedData = JsonUtility.FromJson<SavedGameData>(dataToLoad);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Error during loading file");
             }
 
             return loadedData;

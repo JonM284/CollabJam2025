@@ -39,6 +39,7 @@ Transform:
   - {fileID: 3128440029956224994}
   - {fileID: 4938513106862412556}
   - {fileID: 3541231587021324172}
+  - {fileID: 29271759770406995}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5096763129520010648
@@ -63,6 +64,7 @@ MonoBehaviour:
   - {fileID: 70410811212077248}
   - {fileID: 7508557072127539366}
   - {fileID: 7964972065333151422}
+  - {fileID: 1398544865160206854}
 --- !u!1 &521236526676954248
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,6 +421,50 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &1526975891874949455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29271759770406995}
+  - component: {fileID: 1398544865160206854}
+  m_Layer: 0
+  m_Name: DataGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29271759770406995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526975891874949455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5004254585175942772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1398544865160206854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526975891874949455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce35b6634d408a5478a1fd4f061ae811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1852540287824569105
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_personalities:
   - {fileID: 11400000, guid: a955e049306050b47883760b8e54bc41, type: 2}
+  m_cosmeticData: {fileID: 11400000, guid: 3d845cc1c2c25ba4ea61dcf1780e49c0, type: 2}
 --- !u!1 &2224605416780177719
 GameObject:
   m_ObjectHideFlags: 0

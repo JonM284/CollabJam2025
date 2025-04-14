@@ -15,6 +15,8 @@ namespace Data.DataSaving
         public List<KwestCharacterInfo> savedQuestGivers = new List<KwestCharacterInfo>();
         public List<AssignableQuest> activeQuests = new List<AssignableQuest>();
         public List<AssignableQuest> inactiveQuests = new List<AssignableQuest>();
+
+        public int lastSavedDay, lastSavedInteractionIndex;
         
         public SavedGameData()
         {
@@ -23,6 +25,8 @@ namespace Data.DataSaving
             savedQuestGivers = new List<KwestCharacterInfo>();
             activeQuests = new List<AssignableQuest>();
             inactiveQuests = new List<AssignableQuest>();
+            lastSavedDay = 0;
+            lastSavedInteractionIndex = -1;
         }
     }
 }

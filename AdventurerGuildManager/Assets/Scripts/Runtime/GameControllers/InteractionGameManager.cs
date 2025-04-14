@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Data.CharacterData;
 using Data.DailyInteractionData;
+using Data.DataSaving;
 using NUnit.Framework;
 using Project.Scripts.Utils;
 using Runtime.Characters;
@@ -12,7 +13,7 @@ using Random = UnityEngine.Random;
 
 namespace Runtime.GameControllers
 {
-    public class InteractionGameManager: GameControllerBase
+    public class InteractionGameManager: GameControllerBase, ISaveableData
     {
         
         #region Instance
@@ -25,7 +26,10 @@ namespace Runtime.GameControllers
 
         public static event Action onDailyLimitReached;
 
-        public static event Action<KwestCharacterInfo> onStartNextInteraction; 
+        public static event Action<KwestCharacterInfo> onStartNextInteraction;
+
+        //Accept or Deny
+        public static event Action<bool> onFinishInteraction;
 
         #endregion
 
@@ -41,6 +45,7 @@ namespace Runtime.GameControllers
         private int m_currentDay = 0, m_currentInteractionIndex = -1;
         private DailyInteractionLogData m_currentDailyInteractions;
         private DailyInteractionLogData.InteractableCharacters m_currentInteraction;
+        private KwestCharacterInfo m_currentCharacter;
 
         #endregion
 
@@ -94,7 +99,7 @@ namespace Runtime.GameControllers
                 return;
             }
 
-            if (currentDragable.placementLoc != currentHoverable.GetHoverableType())
+            if (currentDragable.placementLoc != currentHoverable.GetHoverableType() && currentHoverable.GetHoverableType() != HoverableTypes.RETURN)
             {
                 return;
             }
@@ -129,25 +134,25 @@ namespace Runtime.GameControllers
             if (m_currentInteraction.characterType != DailyInteractionLogData.CharacterType.SCRIPTED)
             {
                 //Make random character
-                KwestCharacterInfo _kwestCharacterInfo;
                 switch (m_currentInteraction.characterType)
                 {
                     case DailyInteractionLogData.CharacterType.RANDOM_QUEST_GIVER:
                         //ToDo: change
-                        _kwestCharacterInfo = CharacterGameController.Instance.CreateRandomQuestGiver();
+                        m_currentCharacter = CharacterGameController.Instance.CreateRandomQuestGiver();
                         break;
                     
                     case DailyInteractionLogData.CharacterType.RANDOM_ADVENTURER:
-                        _kwestCharacterInfo = CharacterGameController.Instance.CreateRandomAdventurer();
+                        m_currentCharacter = CharacterGameController.Instance.CreateRandomAdventurer();
+                        CharacterGameController.Instance.AssignRandomCosmetics(m_currentCharacter);
                         break;
                     
                     default:
-                        _kwestCharacterInfo = Random.Range(0,2) == 0 ? CharacterGameController.Instance.CreateRandomAdventurer() 
+                        m_currentCharacter = Random.Range(0,2) == 0 ? CharacterGameController.Instance.CreateRandomAdventurer() 
                             : CharacterGameController.Instance.CreateRandomQuestGiver();
                         break;
                 }
                 
-                onStartNextInteraction?.Invoke(_kwestCharacterInfo);
+                onStartNextInteraction?.Invoke(m_currentCharacter);
                 return;
             }
             
@@ -190,7 +195,8 @@ namespace Runtime.GameControllers
 
         public void OnDraggableReleased()
         {
-            
+            CheckDraggablePlacement();
+            ResetCurrentDraggable();
         }
 
         private void ResetCurrentDraggable()
@@ -205,39 +211,53 @@ namespace Runtime.GameControllers
                 return;
             }
 
-            if (currentHoverable.GetHoverableType() != currentDragable.placementLoc)
+            if (currentHoverable.GetHoverableType() != currentDragable.placementLoc && currentHoverable.GetHoverableType() != HoverableTypes.RETURN)
             {
                 return;
             }
 
-            switch (currentDragable.placementLoc)
+            switch (currentHoverable.GetHoverableType())
             {
                 case HoverableTypes.QUEST_BOARD:
                     SaveNewQuest();
+                    onFinishInteraction?.Invoke(true);
                     break;
                 case HoverableTypes.ADVENTURER_BOOK:
                     //Add New Adventurer
                     SaveNewAdventurer();
+                    onFinishInteraction?.Invoke(true);
                     break;
-                default:
+                case HoverableTypes.RETURN:
+                    //Return to quest giver
                     
+                    onFinishInteraction?.Invoke(false);
                     break;
             }
+            
+            //return object to object pool
+            
+            currentDragable.gameObject.SetActive(false);
+            currentHoverable = null;
         }
 
         private void SaveNewQuest()
         {
-            //QuestController.Instance.AddQuestToQuestBoard(GetCurrentQuest);
+            QuestController.Instance.AddQuestToQuestBoard(GetCurrentQuest());
         }
 
-        private Quest GetCurrentQuest()
+        public Quest GetCurrentQuest()
         {
-            return null;
+            return m_currentInteraction.premadeCharacter.quest;
         }
         
         private void SaveNewAdventurer()
         {
+            if (m_currentCharacter.IsNull())
+            {
+                return;
+            }
             
+            CharacterGameController.Instance.SaveAdventurer(m_currentCharacter);
         }
         
         public void SetCurrentHovered(Hoverable _hoverable)
@@ -254,7 +274,7 @@ namespace Runtime.GameControllers
                 return;
             }
 
-            if (currentHoverable.GetHoverableType() != currentDragable.placementLoc)
+            if (currentHoverable.GetHoverableType() != currentDragable.placementLoc && currentHoverable.GetHoverableType() != HoverableTypes.RETURN)
             {
                 return;
             }
@@ -280,6 +300,23 @@ namespace Runtime.GameControllers
         }
         
         #endregion
+
+        #region ISavableData Inherited Methods
+
+        public void LoadData(SavedGameData _savedGameData)
+        {
+            m_currentDay = _savedGameData.lastSavedDay;
+            m_currentInteractionIndex = _savedGameData.lastSavedInteractionIndex;
+        }
+
+        public void SaveData(ref SavedGameData _savedGameData)
+        {
+            _savedGameData.lastSavedDay = m_currentDay;
+            _savedGameData.lastSavedInteractionIndex = m_currentInteractionIndex;
+        }
+
+        #endregion
+        
         
     }
 }

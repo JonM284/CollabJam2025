@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32824f8608854d0da3e0b18cffacda83, type: 3}
+  m_Name: CosmeticData
+  m_EditorClassIdentifier: 
+  furColors:
+  - {r: 0.93725497, g: 0.5137255, b: 0.47450984, a: 1}
+  - {r: 0.45098042, g: 0.54509807, b: 0.41960788, a: 1}
+  - {r: 0.93725497, g: 0.8588236, b: 0.63529414, a: 1}
+  - {r: 0.24705884, g: 0.28627452, b: 0.30588236, a: 1}
+  - {r: 0.627451, g: 0.63529414, b: 0.76470596, a: 1}
+  - {r: 0.49411768, g: 0.47058827, b: 0.64705884, a: 1}
+  - {r: 0.49411768, g: 0.57254905, b: 0.39607847, a: 1}
+  - {r: 0.54901963, g: 0.40784317, b: 0.40784317, a: 1}
+  headCosmetics:
+  - {fileID: -1720809554, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  - {fileID: -1606148589, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  - {fileID: 636890066, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  - {fileID: 1239863195, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  - {fileID: -587575382, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  - {fileID: -1846324244, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  - {fileID: -442442790, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  - {fileID: -1622988202, guid: b6df44ecb65df2e47ada14e774242cf5, type: 3}
+  bodyCosmetics:
+  - {fileID: -1728369566, guid: 6fa273a3a04bf634fb616711d706825f, type: 3}
+  - {fileID: -1241511771, guid: 6fa273a3a04bf634fb616711d706825f, type: 3}
+  - {fileID: 103171003, guid: 6fa273a3a04bf634fb616711d706825f, type: 3}
+  - {fileID: 1727484396, guid: 6fa273a3a04bf634fb616711d706825f, type: 3}
+  eyeCosmetics:
+  - {fileID: 1089713708, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  - {fileID: 1779336933, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  - {fileID: -1122399734, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  - {fileID: -1114806238, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  - {fileID: 40641080, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  - {fileID: 833671755, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  - {fileID: -1126680716, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  - {fileID: 1104363947, guid: 3a1012be761c4d04bbf0032c7459b569, type: 3}
+  eyeBrowCosmetics:
+  - {fileID: -767728705, guid: e0b9fb1c371a17b478abcb4162f33d2a, type: 3}
+  - {fileID: -980252320, guid: e0b9fb1c371a17b478abcb4162f33d2a, type: 3}
+  - {fileID: 113206420, guid: e0b9fb1c371a17b478abcb4162f33d2a, type: 3}
+  - {fileID: 305062804, guid: e0b9fb1c371a17b478abcb4162f33d2a, type: 3}
+  - {fileID: 750299720, guid: e0b9fb1c371a17b478abcb4162f33d2a, type: 3}
+  eyeColorCosmetics:
+  - {fileID: 1813241006, guid: e615d45670b5e124482bad72f6b6c08e, type: 3}
+  armCoupleData:
+  - {fileID: 11400000, guid: 84dff808008ccc14597a1a6c67878186, type: 2}
+  - {fileID: 11400000, guid: 1fb9375d2b5281b478359caa7cd7611f, type: 2}
+  - {fileID: 11400000, guid: b83f8ff04eaca7542b99ca7dcd8a91a1, type: 2}
+  - {fileID: 11400000, guid: 8958728198dffa341a27fea2bc752671, type: 2}
+  animalSpecificCosmetics:
+  - {fileID: 11400000, guid: e50a29965678c02438443bfa906f3de6, type: 2}
+  - {fileID: 11400000, guid: 10098a3422bfd9c49b49195490a2bba0, type: 2}
+  holdableWeapons:
+  - {fileID: -1066104206, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 2123544212, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -1203158214, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -874990075, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -668874759, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -866588064, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 255898565, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 318746411, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 117433447, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 2033010868, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -429887673, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  backWeapons:
+  - {fileID: -1066104206, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 2123544212, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -1203158214, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -668874759, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 318746411, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 117433447, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: 2033010868, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}
+  - {fileID: -429887673, guid: e42fa5e501f93e64a85b2bcfbfa5d2e6, type: 3}

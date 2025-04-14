@@ -11,6 +11,8 @@ namespace Data.CharacterData
     {
 
         public List<string> possibleDialogs = new List<string>();
+        public List<string> possibleAcceptDialogs = new List<string>();
+        public List<string> possibleDenyDialogs = new List<string>();
         
         [HideInInspector] public string GUID;
         

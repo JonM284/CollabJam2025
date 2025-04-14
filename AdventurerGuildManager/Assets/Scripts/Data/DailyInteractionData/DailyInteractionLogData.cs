@@ -21,10 +21,9 @@ namespace Data.DailyInteractionData
         
         public enum CharacterType
         {
-            FULLY_RANDOM,
-            RANDOM_QUEST_GIVER,
             RANDOM_ADVENTURER,
             SCRIPTED,
+            RANDOM_QUEST_GIVER,
         }
 
         #endregion

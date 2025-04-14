@@ -25,6 +25,8 @@ namespace Runtime.Gameplay
         
         #region Private Fields
 
+        private float m_unheldZPos = -0.5f;
+        
         private Vector3 m_offset;
 
         private bool m_isHeld;
@@ -64,12 +66,14 @@ namespace Runtime.Gameplay
         {
             m_isHeld = true;
             InteractionGameManager.Instance.SetCurrentDraggable(this);
-            m_offset = transform.position -
+            m_offset = transform.position.FlattenVector3Z(-0.1f) -
                        cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, m_screenPoint.z)).FlattenVector3Z();
         }
 
         private void OnMouseUp()
         {
+            m_currentDragPos = transform.position.FlattenVector3Z(m_unheldZPos);
+            transform.position = m_currentDragPos;
             InteractionGameManager.Instance.OnDraggableReleased();
             m_isHeld = false;
             SetOriginalSize();
@@ -109,7 +113,6 @@ namespace Runtime.Gameplay
         public void ChangeSize(bool _isShrink)
         {
             isSmall = _isShrink;
-            Debug.Log($"Shrink = {_isShrink}");
         }
 
         public void SetOriginalSize()

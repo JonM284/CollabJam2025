@@ -32,17 +32,22 @@ namespace Runtime.GameControllers
 
         #endregion
 
-        #region Unity Events
+        #region GameControllerBase Inherited Methods
 
-        private void Awake()
+        public override void Initialize()
         {
             if (!Instance.IsNull())
             {
                 return;
             }
-
+            
             Instance = this;
+            base.Initialize();
         }
+
+        #endregion
+        
+        #region Unity Events
 
         private void Start()
         {
@@ -69,7 +74,7 @@ namespace Runtime.GameControllers
         {
             this.savedGameData = m_dataHandler.Load();
             
-            if (this.savedGameData == null)
+            if (this.savedGameData.IsNull())
             {
                 NewGame();
             }
@@ -78,7 +83,6 @@ namespace Runtime.GameControllers
             {
                 data.LoadData(savedGameData);
             }
-
         }
 
         public void SaveGame()

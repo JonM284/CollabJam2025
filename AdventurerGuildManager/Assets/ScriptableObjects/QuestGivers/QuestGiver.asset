@@ -21,10 +21,13 @@ MonoBehaviour:
     intModifier: 0
     chaModifier: 0
     characterDialog:
-    - Howdy! Here to give a kwuest.
-    - Our Town has been having too many goblins moving in... Need someone that can
-      get rid of them for us
-    - We can offer 100 G as a reward!
+    - Hello!
+    - I have quest!
+    - 1000 G if completed!
+    characterAcceptedDialog:
+    - Great! Thank you !
+    characterDeniedDialog:
+    - oh...
   quest:
     strengthRequirement: 1
     intelligenceRequirement: 0
@@ -32,5 +35,4 @@ MonoBehaviour:
     title: Kill Goblins
     description: 'The town of Mid has '
     reward: 100
-    difficultyRating: 0
-    assignedAdventurers: []
+    difficultyRating: 1
